@@ -11,6 +11,12 @@ Using OpenVINO with Gemma2-2B INT4 and streamlit CHAT APP
 > You can also use whisper and TEXT-2-TEXT encoder-decoder models, that so far are not fully supported with llamaCPP
 
 
+### The final result
+<img src='https://github.com/fabiomatricardi/OpenVINO-Gemma2B-streamlit/blob/main/interface.png' width=900>
+
+
+
+
 ### Instructions
 Works with Python 3.11+, tested on Windows 11
 
@@ -41,7 +47,8 @@ After that in the terminal, with `venv` activated run
 streamlit run .\stappFULL.py
 ```
 
-You will get something like this
+
+
 
 
 
