@@ -110,9 +110,6 @@ av_ass = 'images/assistant2.png'   #'./robot.png'
 st.image('images/Gemma-2-Banner.original.png',use_column_width=True)
 mytitle = f'> *🌟 {modelname} with {nCTX} tokens Context window* - Turn based Chat available with max capacity of :orange[**{st.session_state.maxTurns} messages**].'
 st.markdown(mytitle, unsafe_allow_html=True)
-st.markdown(f'#### Powered by OpenVINO')
-#st.markdown('> Local Chat ')
-#st.markdown('---')
 
 # CREATE THE SIDEBAR
 with st.sidebar:
