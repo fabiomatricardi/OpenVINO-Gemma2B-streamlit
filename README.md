@@ -1,3 +1,5 @@
+<img src='https://github.com/fabiomatricardi/OpenVINO-Gemma2B-streamlit/blob/main/logo.png' width=900>
+
 # OpenVINO-Gemma2B-streamlit
 
 Using OpenVINO with Gemma2-2B INT4 and streamlit CHAT APP
