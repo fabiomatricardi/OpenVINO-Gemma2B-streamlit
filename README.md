@@ -36,8 +36,14 @@ pip install optimum-intel[openvino] tiktoken streamlit==1.36.0
 ### Origianl Model
 Download the model files from HuggingFace repo
 
+```
+NOT WORKING ANYMORE
 [sabre-code/gemma-2-2b-it-openvino-int4
 ](https://huggingface.co/sabre-code/gemma-2-2b-it-openvino-int4)
+```
+
+> NOTE: the sabre-code repo is not anymore online.<br>
+> you can use [circulus/on-gemma2-2b-it-ov-awq-int4](https://huggingface.co/circulus/on-gemma2-2b-it-ov-awq-int4/tree/main) with the same procedure
 
 Download every single files into a subfolder called `model`
 >If you cloned the repo you sill find the subfolder already there for you
