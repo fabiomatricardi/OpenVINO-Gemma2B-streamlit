@@ -91,7 +91,7 @@ def countTokens(text):
 # create THE SESSIoN STATES
 if "logfilename" not in st.session_state:
 ## Logger file
-    logfile = f'{genRANstring(5)}_log.txt'
+    logfile = f'logs/Gemma2-2B_{genRANstring(5)}_log.txt'
     st.session_state.logfilename = logfile
     #Write in the history the first 2 sessions
     writehistory(st.session_state.logfilename,f'{str(datetime.datetime.now())}\n\nYour own LocalGPT with 🌀 {modelname}\n---\n🧠🫡: You are a helpful assistant.')    
