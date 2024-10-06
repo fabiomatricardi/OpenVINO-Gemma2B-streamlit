@@ -13,13 +13,10 @@ import tiktoken
 
 # for counting the tokens in the prompt and in the result
 #context_count = len(encoding.encode(yourtext))
-encoding = tiktoken.get_encoding("r50k_base") 
+encoding = tiktoken.get_encoding("cl100k_base") 
 
-verbosity = False
-nCTX = 8192
-sTOPS = ['<eos>']
 modelname = "Gemma2-2B-it"
-model_id = 'model' #sabre-code/gemma-2-2b-it-openvino-int4
+model_id = 'model' #https://huggingface.co/circulus/on-gemma2-2b-it-ov-awq-int4/tree/main
 
 
 # Set the webpage title
@@ -87,7 +84,7 @@ def create_chat():
 
 @st.cache_resource 
 def countTokens(text):
-    encoding = tiktoken.get_encoding("r50k_base") #context_count = len(encoding.encode(yourtext))
+    encoding = tiktoken.get_encoding("cl100k_base") #context_count = len(encoding.encode(yourtext))
     numoftokens = len(encoding.encode(text))
     return numoftokens
 
@@ -110,6 +107,9 @@ av_ass = 'images/assistant2.png'   #'./robot.png'
 st.image('images/Gemma-2-Banner.original.png',use_column_width=True)
 mytitle = f'> *🌟 {modelname} with {nCTX} tokens Context window* - Turn based Chat available with max capacity of :orange[**{st.session_state.maxTurns} messages**].'
 st.markdown(mytitle, unsafe_allow_html=True)
+st.markdown(f'#### Powered by OpenVINO')
+#st.markdown('> Local Chat ')
+#st.markdown('---')
 
 # CREATE THE SIDEBAR
 with st.sidebar:
@@ -178,7 +178,11 @@ if myprompt := st.chat_input("What is an AI model?"):
             t1.start()
             start = datetime.datetime.now()
             partial_text = ""
+            firstToken = 0
             for chunk in streamer:
+                if firstToken == 0:
+                    ttft = datetime.datetime.now() -start
+                    firstToken = 1
                 full_response += chunk
                 message_placeholder.markdown(full_response + "🟡")
                 delta = datetime.datetime.now() -start    
@@ -191,6 +195,7 @@ if myprompt := st.chat_input("What is an AI model?"):
 
             delta = datetime.datetime.now() - start
             totalseconds = delta.total_seconds()
+            ttfseconds = ttft.total_seconds()
             prompttokens = len(encoding.encode(myprompt))
             assistanttokens = len(encoding.encode(full_response))
             totaltokens = prompttokens + assistanttokens
@@ -202,6 +207,7 @@ if myprompt := st.chat_input("What is an AI model?"):
 📈 generated tokens: {assistanttokens}
 ⏳ generation time: {delta}
 💫 speed: {st.session_state.speed:.3f}  t/s
+🚀 time to first token: {ttfseconds:.2f} seconds
 ```"""    
             message_placeholder.markdown(toregister)
             asstext = f"assistant: {toregister}"
