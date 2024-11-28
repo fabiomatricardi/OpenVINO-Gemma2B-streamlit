@@ -1,6 +1,6 @@
 <img src='https://github.com/fabiomatricardi/OpenVINO-Gemma2B-streamlit/blob/main/logo.png' width=900>
 
-# OpenVINO-Gemma2B-streamlit
+# OpenVINO-Gemma2B-streamlit [![Mentioned in Awesome OpenVINO](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/openvinotoolkit/awesome-openvino)
 
 Using OpenVINO with Gemma2-2B INT4 and streamlit CHAT APP
 > This streamlit application is a ChatBot using OpenVINO as an AI framework
@@ -12,6 +12,11 @@ Using OpenVINO with Gemma2-2B INT4 and streamlit CHAT APP
 > note that OpenVINO can be used to quantize and run also diffusers models like StableDiffusion and others
 > You can also use whisper and TEXT-2-TEXT encoder-decoder models, that so far are not fully supported with llamaCPP
 
+---
+
+* [Gemma2-2b AI Chat App](https://github.com/fabiomatricardi/OpenVINO-Gemma2B-streamlit) - A beautiful Chat Interface, with interactive tuning parameters, powered by Optimum-Intel[openvino], Streamlit and the small but powerful Gemma2-2b-instruct model by Google. The model is an int4 quantized version, hosted on [Hugging Face Hub](https://huggingface.co/circulus/on-gemma2-2b-it-ov-awq-int4).
+
+---
 
 ### The final result
 <img src='https://github.com/fabiomatricardi/OpenVINO-Gemma2B-streamlit/blob/main/interface.png' width=900>
